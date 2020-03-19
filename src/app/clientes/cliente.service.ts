@@ -7,7 +7,9 @@ import { of, Observable } from "rxjs";
 export class ClienteService {
 
   constructor() { }
+  //Lo que retorna el metodo debe ser un stream
   getClientes(): Observable<Cliente[]> {
+    //Convertir el listado de clientes en un observable o Stream 
     return of(CLIENTES);
   }
 }
