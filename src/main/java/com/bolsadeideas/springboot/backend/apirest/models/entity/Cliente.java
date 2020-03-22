@@ -6,8 +6,10 @@ import java.util.Date;
 
 
 @Entity
-@Table(name="clientes")
+@Table(name = "clientes")
 public class Cliente implements Serializable {
+
+    //id de la tabla ademas el identity me permite que se incremente automaticamente
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
