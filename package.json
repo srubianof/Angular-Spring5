@@ -2,8 +2,8 @@
   "name": "cliente-app",
   "version": "0.0.0",
   "engines": {
-    "node" : "~8.15.1",
-    "npm" : "~6.4.1"
+    "node" : "12.6.1",
+    "npm" : "6.13.4"
   }
   "scripts": {
     "ng": "ng",
