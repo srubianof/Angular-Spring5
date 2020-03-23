@@ -124,10 +124,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "cliente-app",
-  "cli": {
-    "analytics": false
-  }
+    }},
+  "defaultProject": "cliente-app"
 }

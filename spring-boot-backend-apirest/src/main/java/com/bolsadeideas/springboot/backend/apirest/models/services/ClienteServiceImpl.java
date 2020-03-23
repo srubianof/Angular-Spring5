@@ -12,35 +12,16 @@ import java.util.List;
 //para poder inyectarlo en el controlador
 @Service
 public class ClienteServiceImpl implements IClienteService {
-  //Inyecto el clienteDao
-  @Autowired
-  private IClienteDao clienteDao;
+    //Inyecto el clienteDao
+    @Autowired
+    private IClienteDao clienteDao;
 
-  @Override
-  //Sobreecribo la transaccionalidad del metodo de spring
-  @Transactional(readOnly = true)
-  public List<Cliente> findAll() {
-    return (List<Cliente>) clienteDao.findAll();
-  }
-
-  @Override
-  @Transactional
-  public Cliente save(Cliente cliente) {
-    return clienteDao.save(cliente);
-  }
-
-  @Override
-  //Sobreecribo la transaccionalidad del metodo de spring
-  @Transactional(readOnly = true)
-  public Cliente findById(Long id) {
-    return clienteDao.findById(id).orElse(null);
-  }
-
-  @Override
-  @Transactional
-  public void delete(long id) {
-    clienteDao.deleteById(id);
-  }
+    @Override
+    //Sobreecribo la transaccionalidad del metodo de spring
+    @Transactional(readOnly = true)
+    public List<Cliente> findAll() {
+        return (List<Cliente>) clienteDao.findAll();
+    }
 
 }
 
