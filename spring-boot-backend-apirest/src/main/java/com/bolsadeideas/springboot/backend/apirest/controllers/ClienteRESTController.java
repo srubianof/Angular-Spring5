@@ -19,6 +19,7 @@ public class ClienteRESTController {
   @Autowired
   private IClienteService clienteService;
 
+
   //Mapeo para que el metodo de tipo GET se pueda utilizar
   @GetMapping("/clientes")
   public List<Cliente> index() {
