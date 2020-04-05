@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
   //paso el cliente y lo suscribo
   //cuando tengo el objeto creado, retorno la respuesta que contiene el nuevo objeto creado
   //y la idea es redirijir al listado de vuelta para mostrar el cliente creado
-  public create(): void {
+  create(): void {
     this.clienteService.create(this.cliente)
       .subscribe(cliente => {
         this.router.navigate(['/clientes'])
@@ -43,6 +43,16 @@ export class FormComponent implements OnInit {
         //Esa libreria sale de sweetalert2.github.io
         swal('Nuevo Cliente', `Cliente ${cliente.nombre} creado con exito`, 'success')
       })
+  }
+
+  update(): void{
+    this.clienteService.update(this.cliente)
+    .subscribe(cliente=>{
+      this.router.navigate(['/clientes'])
+      //Con esto muestro la respuesta de creacion exitosa del cliente/
+      //Esa libreria sale de sweetalert2.github.io
+      swal('Cliente Actualizado', `Cliente ${cliente.nombre} actualizado con exito`, 'success')
+    })
   }
 
 }

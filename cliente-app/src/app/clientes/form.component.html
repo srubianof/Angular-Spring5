@@ -3,7 +3,8 @@
   <div class="card-body">
 
 
-    <form (ngSubmit)="create()">
+    <!-- <form (ngSubmit)="create()"> -->
+    <form>
       <div class="form-group row">
         <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
@@ -27,7 +28,11 @@
 
       <div class="form-group row">
         <div class="col-sm-6">
-          <button class="btn btn-primary" role="button">Crear</button>
+          <button class="btn btn-primary" role="button" (click) = 'create()' *ngIf="!cliente.id else elseBlock">Crear</button>
+<!-- realizo un if para que si el cliente ya esta creado entonces lo actualizo -->
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click) = 'update()' >Editar</button>
+          </ng-template>
         </div>
       </div>
 
