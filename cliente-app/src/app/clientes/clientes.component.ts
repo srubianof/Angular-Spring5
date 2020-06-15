@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from './cliente';
 import { ClienteService } from "./cliente.service";
-import swal from "sweetalert2"
+import swal from "sweetalert2";
+import {FILTROHASTAQUE} from "./clientes.json";
 
 @Component({
   selector: 'app-clientes',
@@ -17,9 +18,16 @@ export class ClientesComponent implements OnInit {
   //Registrar el observador a nuestros clientes(observable)
   ngOnInit() {
     //suscribir o registrar el observador a nuestros clientes
+    // this.ClienteService.getClientes().subscribe(
+    //   (clientes) => this.clientes = clientes
+    // );
     this.ClienteService.getClientes().subscribe(
       (clientes) => this.clientes = clientes
     );
+    FILTROHASTAQUE.subscribe(
+      val => console.log(val)
+    )
+
   }
 
   delete(cliente: Cliente): void {

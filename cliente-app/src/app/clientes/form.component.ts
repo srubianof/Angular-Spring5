@@ -4,6 +4,7 @@ import { ClienteService } from "./cliente.service"
 import { Router, ActivatedRoute } from "@angular/router"
 //Libreria para que las respuestas sean mostradas de manera mas amigable
 import swal from "sweetalert2"
+import {find} from "rxjs/operators";
 
 @Component({
   selector: 'app-form',
@@ -11,8 +12,8 @@ import swal from "sweetalert2"
 })
 export class FormComponent implements OnInit {
 
-  cliente: Cliente = new Cliente()
-  titulo: string = "Crear cliente"
+  cliente: Cliente = new Cliente();
+  titulo: string = "Crear cliente";
 
   //Inyecto las clases necesarias
   constructor(private clienteService: ClienteService,
@@ -21,16 +22,17 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     //Cargo los detalles del cliente seleccionado cuando el boton se activa
-    this.cargarCliente()
+    this.cargarCliente();
   }
 
   cargarCliente(): void {
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id']
+      let id = params['id'];
       if (id) {
-        this.clienteService.getCliente(id).subscribe((cliente) => this.cliente = cliente)
+        this.clienteService.getCliente(id).subscribe(
+          (cliente) => this.cliente = cliente);
       }
-    })
+    });
   }
   //paso el cliente y lo suscribo
   //cuando tengo el objeto creado, retorno la respuesta que contiene el nuevo objeto creado
@@ -42,7 +44,7 @@ export class FormComponent implements OnInit {
         //Con esto muestro la respuesta de creacion exitosa del cliente/
         //Esa libreria sale de sweetalert2.github.io
         swal('Nuevo Cliente', `Cliente ${cliente.nombre} creado con exito`, 'success')
-      })
+      });
   }
 
   update(): void{
@@ -52,7 +54,7 @@ export class FormComponent implements OnInit {
       //Con esto muestro la respuesta de creacion exitosa del cliente/
       //Esa libreria sale de sweetalert2.github.io
       swal('Cliente Actualizado', `Cliente ${cliente.nombre} actualizado con exito`, 'success')
-    })
+    });
   }
 
 }
