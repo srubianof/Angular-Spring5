@@ -21,6 +21,12 @@ public class Cliente implements Serializable {
   @Temporal(TemporalType.DATE)
   private Date createAt;
 
+//  public Cliente(String nombre,String apellido, String email ) {
+//    this.nombre = nombre;
+//    this.apellido = apellido;
+//    this.email = email;
+//  }
+
   //antes de que se haga un save incluya la fecha
   @PrePersist
   public void prePersist() {
