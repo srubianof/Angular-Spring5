@@ -11,5 +11,5 @@ export const CLIENTES: Cliente[] = [
   { id: 6, nombre: 'f', apellido: 'f', email: 'f@f.com', createAt: '2020-03-17' }
 ];
 
-export const clientes$ = from(CLIENTES);
-export const FILTROHASTAQUE = clientes$.pipe(skipWhile( cliente => cliente.id <5));
+// export const clientes$ = from(CLIENTES);
+// export const FILTROHASTAQUE = clientes$.pipe(skipWhile( cliente => cliente.id <5));

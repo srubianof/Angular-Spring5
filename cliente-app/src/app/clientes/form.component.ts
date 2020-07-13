@@ -43,7 +43,8 @@ export class FormComponent implements OnInit {
         this.router.navigate(['/clientes'])
         //Con esto muestro la respuesta de creacion exitosa del cliente/
         //Esa libreria sale de sweetalert2.github.io
-        swal('Nuevo Cliente', `Cliente ${cliente.nombre} creado con exito`, 'success')
+        console.log(cliente.nombre);
+        swal('Nuevo Cliente', `El cliente ${cliente.nombre} ha sido creado con exito`, 'success')
       });
   }
 
